@@ -1,0 +1,4 @@
+Name: Procesamiento interactivo
+Description: widget
+Binding: run_interactive.
+Interactive: true

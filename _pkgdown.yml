@@ -1,0 +1,67 @@
+template:
+  bootstrap: 5
+  bslib:
+    bg: "#F6FFFF"
+    fg: "#000000"
+    primary: "#40555D"
+    border-radius: 0.5rem
+    btn-border-radius: 0.25rem
+    base_font: {google: "Maven Pro"}
+    code_font: {google: "Source Code Pro"}
+
+
+navbar:
+  bg: primary
+  structure:
+    left:  [intro,articles, reference,tutorials, news]
+    right: [search, gitlab]
+  components:
+    gitlab:
+      icon: fa-gitlab
+      href: https://gitlab.com/cognus/proyectos/anii/tidyeaii
+      aria-label: Gitlab
+
+
+articles:
+- title: "Hola"
+  navbar: ~
+  contents:
+  - pkgdown
+  - customise
+  - linking
+  - search
+  - metadata
+- title: Testing
+  desc: >
+    These articles are used to test various pkgdown features that can not
+    easily be tested automatically.
+  contents:
+  - starts_with("test")
+
+
+reference:
+- title: Encuesta continua de Hogares (ECH)
+  contents:
+    - has_keyword("ech")
+- title: Encuesta de Actividades de Innovación e Inversión (EAII)
+  contents:
+    - has_keyword("eaii")
+- title: Funciones <easy>
+  contents:
+    - starts_with("estimate")
+- title: Funciones <utils>
+  contents:
+    - has_keyword("utils")
+- title: Funciones <stats>
+  contents:
+    - starts_with("stats")
+- title: Cotizaciones
+  contents:
+    - has_keyword("data_aux")
+
+
+
+authors:
+  COGNUS:
+    href: https://www.cognus.biz/
+
