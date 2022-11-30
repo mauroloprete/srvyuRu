@@ -39,6 +39,6 @@ En el paquete se encuentran diferentes tipos de funciones :
 ```r
 remotes::install_gitlab(
   "cognus/proyectos/anii/srvyuru", 
-  auth_token = "glpat-vYUCPRF-p1zXesW871g_"
+  auth_token = TOKEN
 )
 ```
