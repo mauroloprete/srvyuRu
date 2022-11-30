@@ -97,5 +97,7 @@ load_base.sav <- function(.dir) {
       .dir
     ),
     encoding = "latin1"
-  )
+  ) %>%
+  haven::zap_labels()
 }
+

@@ -20,21 +20,33 @@
 get_ciiu4. <- function(.data,
                        .ciiu3,
                        .ID) {
-  .data %>%
-    mutate.(
-      "ciiu3_ine" = trunc(
-        as.numeric(
-          {{ .ciiu3 }}
+
+
+   str <- glue::glue(
+    "
+      .data %>%
+        mutate.(
+          'ciiu3_ine' = trunc(
+            as.numeric(
+              {.ciiu3}
+            )
+          )
+        ) %>%
+        left_join.(
+          y = correspondencia
+        ) %>%
+        slice_head.(
+          1,
+          .by = {.ID}
         )
-      )
-    ) %>%
-    left_join.(
-      y = correspondencia
-    ) %>%
-    slice_head.(
-      1,
-      .by = {{ .ID }}
-    )
+    ",
+    .ciiu3 = .ciiu3,
+    .ID = .ID
+   )
+  
+    rlang::parse_expr(str) %>% rlang::eval_tidy()
+
+
 }
 
 
@@ -81,6 +93,8 @@ to_ciiu4. <- function( # nolint
         .ciiu3,
         .ID
       )
+
+      return(.data)
   } else {
     if (.eaii == "1998-2000") {
       .data %<>%
@@ -117,6 +131,7 @@ to_ciiu4. <- function( # nolint
       .data
     }
 
-    .data
+    return(.data)
   }
 }
+
